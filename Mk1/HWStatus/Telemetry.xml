@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:../xml/ISF_Component_Schema.rnc" type="compact"?>
+<!--
+channel telemetry XxML Example
+-->
+<telemetry>
+  <channel id="0" name="clockspeed" data_type="F32" format_string = "%4.5f" abbrev="HWS-0001">
+      <comment>OBC clockspeed</comment>
+  </channel>
+  <channel id="1" name="tempC" data_type="F32" format_string = "%4.5f" abbrev="HWS-0002">
+      <comment>OBC temperature in celcius</comment>
+  </channel>
+</telemetry>

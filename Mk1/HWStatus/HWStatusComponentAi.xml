@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../Autocoders/Python/schema/ISF/component_schema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<component name="HWStatus" kind="passive" namespace="Mk1" modeler="true">
+    <!-- Standard Ports -->
+    <import_port_type>Fw/Time/TimePortAi.xml</import_port_type>
+    <import_port_type>Fw/Tlm/TlmPortAi.xml</import_port_type>
+
+    <!-- Dictionary Definitions -->
+    <import_dictionary>Mk1/HWStatus/Telemetry.xml</import_dictionary>
+    <ports>
+        <!-- Time port for timestamps in Events and Telemetry -->
+        <port name="timeCaller" data_type="Fw::Time"  kind="output" role="TimeGet"    max_number="1">
+        </port>
+
+        <!-- Command Dispatcher Standard Ports -->
+
+        <!-- Event logging for downlink and console -->
+
+        <!-- Channel telemetry -->
+        <port name="tlmOut" data_type="Fw::Tlm"  kind="output" role="Telemetry"    max_number="1">
+        </port>
+
+    </ports>
+
+
+</component>
