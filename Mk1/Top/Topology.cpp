@@ -134,7 +134,7 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     cmdSeq.init(10,0);
     cmdSeq.allocateBuffer(0,mallocator,5*1024);
 
-  //  prmDb.init(10,0);
+    prmDb.init(10,0);
 
     comm.init(0);
     downlink.init(0);
