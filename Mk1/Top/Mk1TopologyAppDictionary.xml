@@ -1,4 +1,4 @@
-<dictionary topology="Mk1" framework_version="1.5.4.dev808+ga159f2b9b.d20210615">
+<dictionary topology="Mk1" framework_version="1.5.4.dev808+ga159f2b9b.d20210616">
   <enums>
     <enum type="CommandDispatcher::error::ErrorResponse">
       <item name="ERR_INVALID_OPCODE" value="0" description="Invalid opcode dispatched"/>
@@ -14,30 +14,6 @@
       <item name="ERR_SIZE_MISMATCH" value="2" description="Buffer size mismatch"/>
       <item name="ERR_TYPE_MISMATCH" value="3" description="Buffer type mismatch"/>
       <item name="ERR_UNEXP_STAT" value="4" description="Unexpected status"/>
-    </enum>
-    <enum type="PrmDb::stage::PrmWriteError">
-      <item name="PRM_WRITE_OPEN" value="0"/>
-      <item name="PRM_WRITE_DELIMITER" value="1"/>
-      <item name="PRM_WRITE_DELIMITER_SIZE" value="2"/>
-      <item name="PRM_WRITE_RECORD_SIZE" value="3"/>
-      <item name="PRM_WRITE_RECORD_SIZE_SIZE" value="4"/>
-      <item name="PRM_WRITE_PARAMETER_ID" value="5"/>
-      <item name="PRM_WRITE_PARAMETER_ID_SIZE" value="6"/>
-      <item name="PRM_WRITE_PARAMETER_VALUE" value="7"/>
-      <item name="PRM_WRITE_PARAMETER_VALUE_SIZE" value="8"/>
-    </enum>
-    <enum type="PrmDb::stage::PrmReadError">
-      <item name="PRM_READ_OPEN" value="0"/>
-      <item name="PRM_READ_DELIMITER" value="1"/>
-      <item name="PRM_READ_DELIMITER_SIZE" value="2"/>
-      <item name="PRM_READ_DELIMITER_VALUE" value="3"/>
-      <item name="PRM_READ_RECORD_SIZE" value="4"/>
-      <item name="PRM_READ_RECORD_SIZE_SIZE" value="5"/>
-      <item name="PRM_READ_RECORD_SIZE_VALUE" value="6"/>
-      <item name="PRM_READ_PARAMETER_ID" value="7"/>
-      <item name="PRM_READ_PARAMETER_ID_SIZE" value="8"/>
-      <item name="PRM_READ_PARAMETER_VALUE" value="9"/>
-      <item name="PRM_READ_PARAMETER_VALUE_SIZE" value="10"/>
     </enum>
     <enum type="CmdSequencer::stage::FileReadStage">
       <item name="SEQ_READ_HEADER" value="0"/>
@@ -114,9 +90,6 @@
       </args>
     </command>
     <command component="cmdDisp" mnemonic="CMD_CLEAR_TRACKING" opcode="0x7c">
-      <args/>
-    </command>
-    <command component="prmDb" mnemonic="PRM_SAVE_FILE" opcode="0x8d">
       <args/>
     </command>
     <command component="cmdSeq" mnemonic="CS_RUN" opcode="0x21d">
@@ -287,50 +260,6 @@
       <args>
         <arg name="Opcode" type="U32"/>
         <arg name="port" type="I32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmIdNotFound" id="0x8d" severity="WARNING_LO" format_string="Parameter ID 0x%08X not found">
-      <args>
-        <arg name="Id" type="U32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmIdUpdated" id="0x8e" severity="ACTIVITY_HI" format_string="Parameter ID 0x%08X updated">
-      <args>
-        <arg name="Id" type="U32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmDbFull" id="0x8f" severity="FATAL" format_string="Parameter DB full when adding ID 0x%08X">
-      <args>
-        <arg name="Id" type="U32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmIdAdded" id="0x90" severity="ACTIVITY_HI" format_string="Parameter ID 0x%08X added">
-      <args>
-        <arg name="Id" type="U32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmFileWriteError" id="0x91" severity="WARNING_HI" format_string="Parameter write failed in stage %s with record %d and error %d">
-      <args>
-        <arg name="stage" type="PrmDb::stage::PrmWriteError"/>
-        <arg name="record" type="I32"/>
-        <arg name="error" type="I32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmFileSaveComplete" id="0x92" severity="ACTIVITY_HI" format_string="Parameter file save completed. Wrote %d records.">
-      <args>
-        <arg name="records" type="U32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmFileReadError" id="0x93" severity="WARNING_HI" format_string="Parameter file read failed in stage %s with record %d and error %d">
-      <args>
-        <arg name="stage" type="PrmDb::stage::PrmReadError"/>
-        <arg name="record" type="I32"/>
-        <arg name="error" type="I32"/>
-      </args>
-    </event>
-    <event component="prmDb" name="PrmFileLoadComplete" id="0x94" severity="ACTIVITY_HI" format_string="Parameter file load completed. Read %d records.">
-      <args>
-        <arg name="records" type="U32"/>
       </args>
     </event>
     <event component="cmdSeq" name="CS_SequenceLoaded" id="0x21d" severity="ACTIVITY_LO" format_string="Loaded sequence %s">

@@ -474,10 +474,10 @@
         <source component = "rateGroupDriverComp" port = "CycleOut" type = "Cycle" num = "0"/>
         <target component = "rateGroup1Comp" port = "CycleIn" type = "Cycle" num = "0"/>
     </connection>
- <!--   <connection name = "Rg1HWStatus">
+    <connection name = "Rg1HWStatus">
          <source component = "rateGroup1Comp" port = "RateGroupMemberOut" type = "Sched" num = "0"/>
-         <target component = "HWStatus" port = "schedIn" type = "Sched" num = "0"/>
-    </connection>-->
+         <target component = "HWStatus" port = "SchedIn" type = "Sched" num = "0"/>
+    </connection>
     <connection name = "Rg1ChTlm">
          <source component = "rateGroup1Comp" port = "RateGroupMemberOut" type = "Sched" num = "2"/>
          <target component = "chanTlm" port = "Run" type = "Sched" num = "0"/>

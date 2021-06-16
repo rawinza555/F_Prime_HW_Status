@@ -14,8 +14,7 @@
 #define HWStatus_HPP
 
 #include "Mk1/HWStatus/HWStatusComponentAc.hpp"
-#define SYSFS_Temp_DIR "/sys/class/thermal/thermal_zone0/temp"
-#define SYSFS_Clockspeed_DIR "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"
+
 namespace Mk1 {
 
   class HWStatusComponentImpl :
@@ -43,19 +42,6 @@ namespace Mk1 {
       //! Destroy object HWStatus
       //!
       ~HWStatusComponentImpl(void);
-
-    PRIVATE:
-
-      // ----------------------------------------------------------------------
-      // Handler implementations for user-defined typed input ports
-      // ----------------------------------------------------------------------
-
-      //! Handler implementation for SchedIn
-      //!
-      void SchedIn_handler(
-          const NATIVE_INT_TYPE portNum, /*!< The port number*/
-          NATIVE_UINT_TYPE context /*!< The call order*/
-      );
 
 
     };
