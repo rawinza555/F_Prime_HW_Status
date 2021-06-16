@@ -5,10 +5,15 @@
     <!-- Standard Ports -->
     <import_port_type>Fw/Time/TimePortAi.xml</import_port_type>
     <import_port_type>Fw/Tlm/TlmPortAi.xml</import_port_type>
-
+    <import_port_type>Svc/Sched/SchedPortAi.xml</import_port_type>
     <!-- Dictionary Definitions -->
     <import_dictionary>Mk1/HWStatus/Telemetry.xml</import_dictionary>
     <ports>
+        <port name="SchedIn" data_type="Sched" kind="sync_input">
+            <comment>
+            The rate group scheduler input
+            </comment>
+        </port>
         <!-- Time port for timestamps in Events and Telemetry -->
         <port name="timeCaller" data_type="Fw::Time"  kind="output" role="TimeGet"    max_number="1">
         </port>

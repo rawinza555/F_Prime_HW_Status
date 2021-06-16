@@ -4,7 +4,6 @@ ActiveRateGroup,rateGroup1Comp,21,20
 TlmChan,chanTlm,61,20
 HWStatus,HWStatus,81,20
 CommandDispatcher,cmdDisp,121,20
-PrmDb,prmDb,141,20
 ActiveRateGroup,rateGroup2Comp,161,20
 ActiveRateGroup,rateGroup3Comp,241,20
 FileUplink,fileUplink,261,20

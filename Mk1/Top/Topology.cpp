@@ -157,12 +157,12 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     constructMk1Architecture();
 
     // dump topology if requested
-    if (dump) {
+/*    if (dump) {
 #if FW_OBJECT_REGISTRATION == 1
         simpleReg.dump();
 #endif
         return true;
-    }
+    }*/
 
     /* Register commands */
     cmdSeq.regCommands();
@@ -219,7 +219,6 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     eventLogger.start(0,98,10*1024);
     chanTlm.start(0,97,10*1024);
     prmDb.start(0,96,10*1024);
-
     fileDownlink.start(0, 100, 10*1024);
     fileUplink.start(0, 100, 10*1024);
     fileManager.start(0, 100, 10*1024);

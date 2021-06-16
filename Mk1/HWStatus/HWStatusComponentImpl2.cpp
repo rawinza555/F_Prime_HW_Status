@@ -8,12 +8,13 @@
 // ALL RIGHTS RESERVED.  United States Government Sponsorship
 // acknowledged.
 //
-// ======================================================================
+// ==============================================8========================
 
 
 #include <Mk1/HWStatus/HWStatusComponentImpl.hpp>
 #include "Fw/Types/BasicTypes.hpp"
-
+#define SYSFS_Temp_DIR "/sys/class/thermal/thermal_zone0/temp"
+#define SYSFS_Clockspeed_DIR "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"
 namespace Mk1 {
 
   // ----------------------------------------------------------------------
@@ -31,27 +32,10 @@ namespace Mk1 {
   void HWStatusComponentImpl ::
     init(
         const NATIVE_INT_TYPE instance
+        
     )
   {
     HWStatusComponentBase::init(instance);
-  }
-
-  HWStatusComponentImpl ::
-    ~HWStatusComponentImpl(void)
-  {
-
-  }
-
-  // ----------------------------------------------------------------------
-  // Handler implementations for user-defined typed input ports
-  // ----------------------------------------------------------------------
-
-  void HWStatusComponentImpl ::
-    SchedIn_handler(
-        const NATIVE_INT_TYPE portNum,
-        NATIVE_UINT_TYPE context
-    )
-  {
     float systemp, sysclockspeed, millideg, hz;
     int n, m;
     FILE *thermal, *clock;
@@ -65,6 +49,13 @@ namespace Mk1 {
     sysclockspeed = hz/1000000;
     tlmWrite_tempC(systemp);
     tlmWrite_clockspeed(sysclockspeed);
+
+  }
+
+  HWStatusComponentImpl ::
+    ~HWStatusComponentImpl(void)
+  {
+
   }
 
 } // end namespace Mk1
