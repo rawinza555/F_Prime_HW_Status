@@ -117,7 +117,7 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     blockDrv.init(10);
 
     // Send/Receive example hardware components
-    HWStatus.init();
+    HWStatus.init(10);
 
 #if FW_ENABLE_TEXT_LOGGING
     textLogger.init();
