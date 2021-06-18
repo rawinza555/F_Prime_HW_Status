@@ -50,6 +50,7 @@
     <instance namespace="Svc" name="staticMemory" type="StaticMemory" base_id="661"  base_id_window="20" />
     <instance namespace="Svc" name="downlink" type="Framer" base_id="681"  base_id_window="20" />
     <instance namespace="Svc" name="uplink" type="Deframer" base_id="701"  base_id_window="20" />
+    <instance namespace="Svc" name="blockDrv" type="BlockDriver" base_id="1600" base_id_window="20"/>
 
     <!-- Communications driver. May be swapped with other comm drivers like UART -->
     <!-- Note: here we have tcp reliable uplink, and Udp (low latency) downlink -->
@@ -459,7 +460,7 @@
     <connection name = "blockDrvTime">
          <source component = "blockDrv" port = "Time" type = "Time" num = "0"/>
          <target component = "linuxTime" port = "timeGetPort" type = "Time" num = "0"/>
-    </connection>    
+    </connection>   
 
     <!-- Rate Group Connections -->
    
